@@ -64,7 +64,7 @@ All endpoints (except `/users/register` and `/users/login`) require a valid JWT 
   ```
 
 #### Create a Library -- 
-- Endpoint: `POST  /libraries`
+- Endpoint: `POST /libraries`
 - Request Body:
   ```
   {
@@ -74,7 +74,7 @@ All endpoints (except `/users/register` and `/users/login`) require a valid JWT 
   ```
 
 #### Create a Book -- 
-- Endpoint: `POST  /books`
+- Endpoint: `POST /books`
 - Request Body:
   ```
     {
@@ -87,7 +87,7 @@ All endpoints (except `/users/register` and `/users/login`) require a valid JWT 
   ```
 
 #### Add book to invenntory -- 
-- Endpoint: `POST  /api/libraries/:libraryId/inventory`
+- Endpoint: `POST /api/libraries/:libraryId/inventory`
 - Request Body:
   ```
   {
