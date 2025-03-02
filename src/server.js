@@ -8,7 +8,7 @@ const libraryRoutes = require("./routes/libraryRoutes");
 const borrowRoutes = require("./routes/borrowRoutes");
 
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3000;
 
 //middleware
 app.use(cors());

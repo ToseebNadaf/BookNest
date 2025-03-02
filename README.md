@@ -167,6 +167,7 @@ All endpoints (except `/users/register` and `/users/login`) require a valid JWT 
 3. **Set Up Environment Variables:**
 Create a `.env` file in the root directory and add the following variables:
   ```
+  PORT=3000
   DATABASE_URL="postgresql://user:password@localhost:5432/booknest"
   JWT_SECRET="your_jwt_secret"
   CLOUDINARY_CLOUD_NAME="your_cloud_name"
