@@ -7,8 +7,6 @@ const {
   updateBook,
   deleteBook,
 } = require("../controllers/bookController");
-const validate = require("../middleware/validate");
-const { updateBookSchema, createBookSchema } = require("../validations/bookValidations");
 
 const router = express.Router();
 
@@ -19,10 +17,10 @@ router.get("/", validateToken, getAllBooks);
 router.get("/:id", validateToken, getBookById);
 
 // POST /api/books - Create a new book (with validation)
-router.post("/", validateToken, validate(createBookSchema), createBook);
+router.post("/", validateToken, createBook);
 
 // PUT /api/books/:id - Update a book by ID (with validation)
-router.put("/:id", validateToken, validate(updateBookSchema), updateBook);
+router.put("/:id", validateToken, updateBook);
 
 // DELETE /api/books/:id - Delete a book by ID
 router.delete("/:id", validateToken, deleteBook);
