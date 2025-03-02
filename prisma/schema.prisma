@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              Int               @id @default(autoincrement())
+  name            String
+  email           String            @unique
+  password        String
+  role            String
+  books           Book[]            @relation("AuthorBooks")
+  borrowed        Book[]            @relation("BorrowedBooks")
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  BorrowingRecord BorrowingRecord[]
+}
+
+model Book {
+  id              Int               @id @default(autoincrement())
+  title           String
+  description     String
+  image           String
+  authorId        Int
+  author          User              @relation("AuthorBooks", fields: [authorId], references: [id])
+  libraryId       Int?
+  library         Library?          @relation(fields: [libraryId], references: [id])
+  borrowerId      Int?
+  borrower        User?             @relation("BorrowedBooks", fields: [borrowerId], references: [id])
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  BorrowingRecord BorrowingRecord[]
+}
+
+model Library {
+  id        Int      @id @default(autoincrement())
+  name      String
+  location  String
+  books     Book[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model BorrowingRecord {
+  id         Int       @id @default(autoincrement())
+  bookId     Int
+  book       Book      @relation(fields: [bookId], references: [id])
+  userId     Int
+  user       User      @relation(fields: [userId], references: [id])
+  charge     Float
+  borrowedAt DateTime  @default(now())
+  returnedAt DateTime?
+}
