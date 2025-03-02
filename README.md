@@ -58,10 +58,8 @@ All endpoints (except `/users/register` and `/users/login`) require a valid JWT 
 - Request Body:
   ```
   {
-    "name": "John Doe",
     "email": "john.doe@example.com",
     "password": "password123",
-    "role": "author"
   }
   ```
 
