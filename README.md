@@ -29,6 +29,58 @@ BookNest is a RESTful API built with Node.js, Express, and PostgreSQL. It allows
   - Validate API requests using Joi.
 
 
+## Technologies Used
+- **Backend:** Node.js, Express
+- **Database:** PostgreSQL, Prisma
+- **Authentication:** JWT
+- **Image Upload:** Cloudinary
+- **Validation:** Joi
+- **Rate Limiting:** express-rate-limit
+- **Multilingual Support:** Custom translation utility
+
+
+## Setup Instructions
+### Prerequisites
+- Node.js (v16 or higher)
+- PostgreSQL
+- Cloudinary account (for image uploads)
+
+### Steps
+1. **Clone the Repository:**
+  ```
+  git clone https://github.com/your-username/BookNest.git
+  cd BookNest
+  ```
+
+2. **Install Dependencies:**
+  ```
+  npm install --force
+  ```
+
+3. **Set Up Environment Variables:**
+Create a `.env` file in the root directory and add the following variables:
+  ```
+  PORT=3000
+  DATABASE_URL="postgresql://user:password@localhost:5432/booknest"
+  JWT_SECRET="your_jwt_secret"
+  CLOUDINARY_CLOUD_NAME="your_cloud_name"
+  CLOUDINARY_API_KEY="your_api_key"
+  CLOUDINARY_API_SECRET="your_api_secret"
+  ```
+
+4. **Run Migrations:**
+  ```
+  npx prisma migrate dev
+  ```
+
+5. **Start the Server:**
+  ```
+  npm run dev
+  ```
+
+6. **Access the API:** The API will be running at `http://localhost:3000/api`. 
+
+
 ## API Responses
 ### Base URL  
   ```
@@ -40,6 +92,11 @@ All endpoints (except `/users/register` and `/users/login`) require a valid JWT 
   Authorization: Bearer <token>
   ```
 
+### Multilingual Response
+In order to receive response of the message in `English` or `Hindi` you need to set headers given as below
+  ```
+  Accept-Language: hi / en
+  ```
 
 #### Register a User -
 - Endpoint: `POST /users/register`
@@ -145,57 +202,3 @@ All endpoints (except `/users/register` and `/users/login`) require a valid JWT 
 | ---------- | --------------- | ----------------------- |
 | POST       | /api/borrow     | To borrow a book        |
 | PUT        | /api/return/:id | To return borrowed book |
-
-
-## Setup Instructions
-### Prerequisites
-- Node.js (v16 or higher)
-- PostgreSQL
-- Cloudinary account (for image uploads)
-
-### Steps
-1. **Clone the Repository:**
-  ```
-  git clone https://github.com/your-username/BookNest.git
-  cd BookNest
-  ```
-
-2. **Install Dependencies:**
-  ```
-  npm install --force
-  ```
-
-3. **Set Up Environment Variables:**
-Create a `.env` file in the root directory and add the following variables:
-  ```
-  PORT=3000
-  DATABASE_URL="postgresql://user:password@localhost:5432/booknest"
-  JWT_SECRET="your_jwt_secret"
-  CLOUDINARY_CLOUD_NAME="your_cloud_name"
-  CLOUDINARY_API_KEY="your_api_key"
-  CLOUDINARY_API_SECRET="your_api_secret"
-  ```
-
-4. **Run Migrations:**
-  ```
-  npx prisma migrate dev
-  ```
-
-5. **Start the Server:**
-  ```
-  npm run dev
-  ```
-
-6. **Access the API:** The API will be running at `http://localhost:3000/api`.
-
-
-
-### Technologies Used
-- **Backend:** Node.js, Express
-- **Database:** PostgreSQL, Prisma
-- **Authentication:** JWT
-- **Image Upload:** Cloudinary
-- **Validation:** Joi
-- **Rate Limiting:** express-rate-limit
-- **Multilingual Support:** Custom translation utility
-
