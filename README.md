@@ -1,4 +1,4 @@
-# BookNest
+# BookNest - Bookkeeping Service
  **BookNest** is a comprehensive bookkeeping service that allows users to manage books, libraries, and borrowing transactions. It provides APIs for authors, borrowers, and librarians to interact with the system seamlessly.
 
 ## Introduction
@@ -29,8 +29,8 @@ BookNest is a RESTful API built with Node.js, Express, and PostgreSQL. It allows
   - Validate API requests using Joi.
 
 
-## API Endpoints
-### Base URL -- 
+## API Responses
+### Base URL  
   ```
   http://localhost:3000/api
   ```
@@ -41,7 +41,7 @@ All endpoints (except `/users/register` and `/users/login`) require a valid JWT 
   ```
 
 
-#### Register a User -- 
+#### Register a User -
 - Endpoint: `POST /users/register`
 - Request Body:
   ```
@@ -53,7 +53,7 @@ All endpoints (except `/users/register` and `/users/login`) require a valid JWT 
   }
   ```
 
-#### Login User -- 
+#### Login User - 
 - Endpoint: `POST /users/login`
 - Request Body:
   ```
@@ -63,7 +63,7 @@ All endpoints (except `/users/register` and `/users/login`) require a valid JWT 
   }
   ```
 
-#### Create a Library -- 
+#### Create a Library - 
 - Endpoint: `POST /libraries`
 - Request Body:
   ```
@@ -73,7 +73,7 @@ All endpoints (except `/users/register` and `/users/login`) require a valid JWT 
   }
   ```
 
-#### Create a Book -- 
+#### Create a Book - 
 - Endpoint: `POST /books`
 - Request Body:
   ```
@@ -86,7 +86,7 @@ All endpoints (except `/users/register` and `/users/login`) require a valid JWT 
     }
   ```
 
-#### Add book to invenntory -- 
+#### Add book to invenntory - 
 - Endpoint: `POST /api/libraries/:libraryId/inventory`
 - Request Body:
   ```
@@ -95,7 +95,7 @@ All endpoints (except `/users/register` and `/users/login`) require a valid JWT 
   }
   ```
 
-#### Borrow a Book -- 
+#### Borrow a Book - 
 - Endpoint: `POST /borrow`
 - Request Body:
   ```
@@ -106,7 +106,8 @@ All endpoints (except `/users/register` and `/users/login`) require a valid JWT 
   }
   ```
 
-### API Responses - 
+## ENDPOINTS
+ 
 #### **Users Endpoint -**
 
 | HTTP Verbs | Endpoints           | Action                            |
@@ -161,7 +162,7 @@ All endpoints (except `/users/register` and `/users/login`) require a valid JWT 
 
 2. **Install Dependencies:**
   ```
-  npm install
+  npm install --force
   ```
 
 3. **Set Up Environment Variables:**
